@@ -53,9 +53,20 @@ async function download(url, destination) {
   writeFileSync(destination, Buffer.from(await response.arrayBuffer()))
 }
 
+function hasPmtilesCli() {
+  try {
+    execFileSync('pmtiles', ['--help'], { stdio: 'ignore' })
+    return true
+  } catch {
+    return false
+  }
+}
+
 const archive = resolve(tilesDir, 'bengaluru.pmtiles')
 if (existsSync(archive)) {
   process.stdout.write(`basemap · tiles already present, skipping extract\n`)
+} else if (!hasPmtilesCli()) {
+  process.stdout.write('basemap · pmtiles CLI not found, skipping tile extract\n')
 } else {
   const source = await newestBuild()
   process.stdout.write(`basemap · extracting ${BBOX} from ${source}\n`)

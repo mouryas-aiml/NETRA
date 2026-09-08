@@ -16,7 +16,11 @@ interface StationBriefFixture {
  */
 async function stationIndex(): Promise<StationBriefFixture> {
   const path = resolve(process.cwd(), 'public/data/scenarios/station_brief.json')
-  return JSON.parse(await readFile(path, 'utf8')) as StationBriefFixture
+  try {
+    return JSON.parse(await readFile(path, 'utf8')) as StationBriefFixture
+  } catch {
+    return { stations: [] }
+  }
 }
 
 export async function generateStaticParams(): Promise<{ code: string }[]> {
