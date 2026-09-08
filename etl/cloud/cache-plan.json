@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "segment_env": "KSPCID_CACHE_SEGMENT",
+  "segment_name": "kspcid-hot",
+  "ttl_seconds": 172800,
+  "cron": {
+    "function": "kv-cache-warm",
+    "schedule": "every 24 hours",
+    "function_type": "cron",
+    "stack": "node22"
+  },
+  "families": {
+    "station": "Top 20 station aggregates, one key per station",
+    "bitsets": "Every bitset-consuming scenario (currently the audited corridor patrol scenario) gets a scenario-keyed index and 12,000-character base64 chunks",
+    "command-feed": "One index key plus one key per alert card",
+    "state": "Default all-crime outlook plus the five most common crime-group responses and district-detail keys"
+  },
+  "constraints": {
+    "max_value_characters": 16000,
+    "max_ttl_seconds": 172800,
+    "development_segment_size_bytes": 5242880
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "snapshot_id": "six-minute-offline-demo-v1",
+  "demo_mode": "offline",
+  "routes": [
+    "/feed/",
+    "/map/",
+    "/similarity/",
+    "/network/",
+    "/patrol/",
+    "/justice/",
+    "/cyber/"
+  ],
+  "artifacts": [
+    {
+      "id": "feed",
+      "url": "/data/scenarios/command_feed.json",
+      "sha256": "360ebba9af42a278432f862aee492832afbe286d9fef2b53fa3e36481b5ce7f7",
+      "bytes": 28657,
+      "required": true
+    },
+    {
+      "id": "command_map",
+      "url": "/data/scenarios/command_map.json",
+      "sha256": "a2ed529f0b54e1a1b5a99edcd9590a0ce8868f029f54d2afb4fb433664875017",
+      "bytes": 433371,
+      "required": true
+    },
+    {
+      "id": "patrol_scenario",
+      "url": "/data/scenarios/demo_corridor_patrol.json",
+      "sha256": "edff6c276bd07c654b3703d6614d1abb9a33c382eb52208ad1f0f7c08c4e8592",
+      "bytes": 108602,
+      "required": true
+    },
+    {
+      "id": "optimizer_fallback",
+      "url": "/data/scenarios/optimizer_fallback.json",
+      "sha256": "d7597e5510aad0b14f379d028fa4e2a1a6b90c4ed497b229c7fce074e3249c47",
+      "bytes": 1517,
+      "required": true
+    },
+    {
+      "id": "similarity",
+      "url": "/data/scenarios/similarity_demo.json",
+      "sha256": "c4bde7060bb25bb7869b633b0a84e9fc9d6c7adc6548cd69f5160778d76de0f2",
+      "bytes": 1431716,
+      "required": true
+    },
+    {
+      "id": "graph",
+      "url": "/data/graph/graph_snapshot.json",
+      "sha256": "aaf8bd393d21062120340eeb3cc4a9afe76c070b062677d32a15ee3ba7a03c2d",
+      "bytes": 11925630,
+      "required": true
+    },
+    {
+      "id": "routing_region",
+      "url": "/data/routing/corridor_region.json",
+      "sha256": "b94fac9ea34a76552f912b26d927243fef067ae58a6fcdd78f79e4d73ea859a3",
+      "bytes": 1095,
+      "required": true
+    },
+    {
+      "id": "routing_hexes",
+      "url": "/data/routing/hex_index.json",
+      "sha256": "539a3f3a8862c153df20a77605cd52a5764be197543209009cd0ab48d48e0bfd",
+      "bytes": 243197,
+      "required": true
+    },
+    {
+      "id": "routing_durations",
+      "url": "/data/routing/duration_matrix.bin",
+      "sha256": "c3605a7e5b5eb59373d959c386cd1986d6a2901bd0555e8d703de193a5323a52",
+      "bytes": 5373124,
+      "required": true
+    },
+    {
+      "id": "routing_coverage",
+      "url": "/data/routing/coverage_bitsets.bin",
+      "sha256": "2f11f7d1ef99a2656af5613d1f429c4e39e21d830b0f2c9e305003af0947d9b3",
+      "bytes": 857660,
+      "required": true
+    },
+    {
+      "id": "dispatch_routes",
+      "url": "/data/routing/dispatch_routes.json",
+      "sha256": "d38675db4e4b154de30b52dbc56ea14197539e0b1c026d94811103d0adb42c82",
+      "bytes": 1458848,
+      "required": true
+    },
+    {
+      "id": "justice_brief",
+      "url": "/data/scenarios/justice_pipeline.json",
+      "sha256": "0e39832dd6d6350b6cca374e2f5be4ba03ea34f35e7aa390391ce71f5b0ce71a",
+      "bytes": 91017,
+      "required": true
+    },
+    {
+      "id": "cyber_brief",
+      "url": "/data/scenarios/cyber_wing.json",
+      "sha256": "d303cafd28497da2dfa93843eaf61f6cee30cef3eccf989033520c9a5ce407d9",
+      "bytes": 21025,
+      "required": true
+    }
+  ],
+  "map_explanation": {
+    "signal": "Of Automobiles - Of Two Wheelers",
+    "corridor": "Kadugondana Halli → Banaswadi → Ramamurthy Nagar → K.R. Puram",
+    "routing_validation": "PASS",
+    "transformation": "derived",
+    "scenario_id": "demo-corridor-patrol-2021-2023-night"
+  },
+  "brief_preview": {
+    "observed_records": 425408,
+    "undetected": 92874,
+    "cyber_records": 64599,
+    "transformation": "normalized"
+  },
+  "service_worker": "/offline-sw.js",
+  "optimizer_contract": {
+    "live_timeout_ms": 2000,
+    "fallback_url": "/data/scenarios/optimizer_fallback.json",
+    "fallback_sha256": "d7597e5510aad0b14f379d028fa4e2a1a6b90c4ed497b229c7fce074e3249c47"
+  },
+  "provenance": {
+    "source_authority": "generated_demo",
+    "transformation": "generated",
+    "method": "offline_demo_manifest_v1",
+    "source_checksum": "b94fac9ea34a76552f912b26d927243fef067ae58a6fcdd78f79e4d73ea859a3",
+    "generation_version": "kspcid-etl-1.0.0"
+  }
+}

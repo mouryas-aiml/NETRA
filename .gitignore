@@ -1,0 +1,70 @@
+# ── Dependencies ─────────────────────────────────────────────────────────────
+node_modules/
+.npmcache/
+
+# ── Source archive (~1.5 GB) ─────────────────────────────────────────────────
+# Data_Docs/ is the frozen third-party + official source archive. It is far
+# beyond GitHub's file and repository limits and is reacquired, not versioned:
+#   bash Data_Docs/download_sources.sh
+# Its checksums are recorded in data/manifest.json, so any clone can verify it
+# obtained byte-identical inputs. Keep the README and the acquisition script.
+Data_Docs/*
+!Data_Docs/README.md
+!Data_Docs/download_sources.sh
+Data_Docs.zip
+
+# ── Build-toolchain artifacts (~900 MB) ──────────────────────────────────────
+# OSRM graph + OSM extracts. Rebuilt by the BUILD_SPEC §3.3 commands.
+.data/
+
+# ── Compiler outputs ─────────────────────────────────────────────────────────
+# Regenerable from checksummed inputs by `npm run etl:all`. data/manifest.json
+# IS versioned — it is the contract that proves a rebuild is bit-identical.
+data/derived/
+data/nosql/
+data/routing/
+data/scenarios/
+.staging/
+data/.cache/
+
+# ── LA donor artifacts ───────────────────────────────────────────────────────
+# Distribution donor only (BUILD_SPEC §6.2); never a KPSCID surface.
+# Regenerable with `npm run donor:build`.
+output/
+reference/raw/bengaluru_osm_overpass.json
+
+# ── Catalyst ─────────────────────────────────────────────────────────────────
+.catalyst/
+.catalyst-client/
+**/.build/
+functions/**/node_modules/
+client/.next/
+client/out/
+client/public/data/
+client/public/tiles/
+client/public/basemap/
+
+# ── Local ────────────────────────────────────────────────────────────────────
+.DS_Store
+*.log
+*.pid
+*.tsbuildinfo
+.env
+.env.local
+
+# ── Local presentation and editor artifacts ────────────────────────────────
+.claude/
+.codex-deck-work/
+KPSCID_Dataset_Bundle/
+KSPCID_Dataset_Bundle/
+KSPCID_Datasets_DropIn.zip
+KSPCID_Hackathon_Canva_Import.html
+KSPCID_Hackathon_Canva_Import.zip
+KSPCID_PPT_Sample.pptx
+
+# ── Local documentation and generated reports ──────────────────────────────
+# Existing tracked files are unaffected; later commits must leave their
+# modifications unstaged. Mapping CSVs remain visible because the donor build
+# and validation scripts read them directly.
+*.md
+reports/
