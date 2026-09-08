@@ -51,6 +51,7 @@
     "verify:offline": "node --import tsx etl/verify_offline.ts",
     "verify:map": "node --import tsx etl/verify_command_map.ts",
     "verify:full-routing": "node --import tsx etl/verify_full_routing.ts",
+    "build": "npm ci --prefix client && npm run build --prefix client",
     "typecheck": "tsc --noEmit",
     "verify": "node --import tsx etl/verify_reconciliation.ts",
     "etl:a7": "npm run etl:04 && npm run etl:05 && npm run etl:06",
