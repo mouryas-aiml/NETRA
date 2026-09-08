@@ -23,9 +23,13 @@ async function stationIndex(): Promise<StationBriefFixture> {
   }
 }
 
+export const dynamicParams = false
+
 export async function generateStaticParams(): Promise<{ code: string }[]> {
   const fixture = await stationIndex()
-  return fixture.stations.map((station) => ({ code: station.station_code }))
+  const params = fixture.stations.map((station) => ({ code: station.station_code }))
+  // `output: 'export'` treats an empty list as a missing generateStaticParams().
+  return params.length > 0 ? params : [{ code: 'unavailable' }]
 }
 
 export async function generateMetadata({

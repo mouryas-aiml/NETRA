@@ -69,7 +69,7 @@ const buildStubs = [
     },
   ],
   ['public/data/reference/karnataka_districts.json', { type: 'FeatureCollection', features: [] }],
-  ['public/data/scenarios/station_brief.json', { stations: [] }],
+  ['public/data/scenarios/station_brief.json', { stations: [{ station_code: 'unavailable', station_name: 'Unavailable' }] }],
 ]
 
 for (const [destination, stub] of buildStubs) {
