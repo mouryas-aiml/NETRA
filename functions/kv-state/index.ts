@@ -1,5 +1,4 @@
 import type { DataAdapter } from '../shared/data-access/types.js'
-import checkedPublication from '../../data/scenarios/state_intelligence.json'
 
 export interface StateRequest { mode?: string; crimeGroup?: string; start?: string; end?: string; district?: string }
 const MODES = new Set(['risk', 'rate', 'urban'])
@@ -15,9 +14,9 @@ export async function stateWithAdapter(request: StateRequest, adapter: DataAdapt
     const bytes = await adapter.getObject('state/state_intelligence.json')
     data = JSON.parse(new TextDecoder().decode(bytes))
   } catch {
-    // The checked publication is also bundled into the Function, so a fresh
-    // deployment is useful before the first Stratus synchronization finishes.
-    data = checkedPublication
+    throw new Error(
+      'State Intelligence is unavailable: the official state publication has not been generated.',
+    )
   }
   const crimeGroup = request.crimeGroup ?? data.crime_groups[0]
   if (!data.crime_groups.includes(crimeGroup)) throw new Error('Unsupported crimeGroup')

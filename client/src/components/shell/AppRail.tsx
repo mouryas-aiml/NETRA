@@ -22,7 +22,7 @@ const items = [
   { href: '/state/', label: 'State Intelligence', icon: Globe2 },
   { href: '/map/', label: 'Command Map', icon: Map },
   { href: '/feed/', label: 'Command Feed', icon: BellRing },
-  { href: '/patrol/', label: 'Patrol Lab', icon: RadioTower },
+  { href: '/patrol/', label: 'Namma Patrol Lab', icon: RadioTower },
   { href: '/similarity/', label: 'Case Similarity', icon: Search },
   { href: '/network/', label: 'Case Constellation', icon: Network },
   { href: '/cyber/', label: 'Cyber Intelligence Wing', icon: Activity },

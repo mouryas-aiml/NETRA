@@ -1,6 +1,6 @@
 [
   {
-    "name": "KSPCID incidents",
+    "name": "NETRA incidents",
     "source_endpoint": "/incidents",
     "target": "basicio",
     "target_id": "kv-incidents",
@@ -10,7 +10,7 @@
     "status": true
   },
   {
-    "name": "KSPCID hotspots",
+    "name": "NETRA hotspots",
     "source_endpoint": "/hotspots",
     "target": "basicio",
     "target_id": "kv-hotspots",
@@ -20,7 +20,7 @@
     "status": true
   },
   {
-    "name": "KSPCID explain",
+    "name": "NETRA explain",
     "source_endpoint": "/explain",
     "target": "basicio",
     "target_id": "kv-explain",
@@ -30,7 +30,7 @@
     "status": true
   },
   {
-    "name": "KSPCID similar",
+    "name": "NETRA similar",
     "source_endpoint": "/similar",
     "target": "basicio",
     "target_id": "kv-similar",
@@ -40,7 +40,7 @@
     "status": true
   },
   {
-    "name": "KSPCID optimize",
+    "name": "NETRA optimize",
     "source_endpoint": "/optimize",
     "target": "advancedio",
     "target_endpoint": "/server/kv-optimize/execute",
@@ -50,7 +50,7 @@
     "status": true
   },
   {
-    "name": "KSPCID graph",
+    "name": "NETRA graph",
     "source_endpoint": "/graph",
     "target": "advancedio",
     "target_endpoint": "/server/kv-graph/execute",
@@ -60,7 +60,7 @@
     "status": true
   },
   {
-    "name": "KSPCID state intelligence",
+    "name": "NETRA state intelligence",
     "source_endpoint": "/state",
     "target": "basicio",
     "target_id": "kv-state",

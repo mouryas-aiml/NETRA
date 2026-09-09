@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "KSPCID — Karnataka Police State Crime Intelligence Dashboard. Build-time ETL compiler (BUILD_SPEC §2.2, §6.4). Nothing here is deployed.",
+  "description": "NETRA — AI-Powered Criminal Network Intelligence & Analysis System. Build-time ETL compiler (BUILD_SPEC §2.2, §6.4). Nothing here is deployed.",
   "scripts": {
     "etl:audit": "node --import tsx etl/00_audit_data_truth.ts",
     "lint:truth": "node --import tsx etl/lint_data_truth.ts",

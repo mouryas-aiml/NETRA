@@ -8,14 +8,15 @@ node_modules/
 #   bash Data_Docs/download_sources.sh
 # Its checksums are recorded in data/manifest.json, so any clone can verify it
 # obtained byte-identical inputs. Keep the README and the acquisition script.
-Data_Docs/*
-!Data_Docs/README.md
-!Data_Docs/download_sources.sh
+Data_Docs/
 Data_Docs.zip
+Crime_Data_from_2020_to_2024_20260724.csv
 
 # ── Build-toolchain artifacts (~900 MB) ──────────────────────────────────────
 # OSRM graph + OSM extracts. Rebuilt by the BUILD_SPEC §3.3 commands.
 .data/
+southern-zone-latest.osm.pbf
+southern-zone-latest.osrm*
 
 # ── Compiler outputs ─────────────────────────────────────────────────────────
 # Regenerable from checksummed inputs by `npm run etl:all`. data/manifest.json
@@ -67,4 +68,5 @@ KSPCID_PPT_Sample.pptx
 # modifications unstaged. Mapping CSVs remain visible because the donor build
 # and validation scripts read them directly.
 *.md
+docs/
 reports/

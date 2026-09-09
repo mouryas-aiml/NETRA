@@ -15,91 +15,91 @@
     {
       "id": "feed",
       "url": "/data/scenarios/command_feed.json",
-      "sha256": "360ebba9af42a278432f862aee492832afbe286d9fef2b53fa3e36481b5ce7f7",
+      "sha256": "7b67f73813eeae1c3193ab6e0c7c05f4ca2388a583284e2d61877538d5c2e3fd",
       "bytes": 28657,
       "required": true
     },
     {
       "id": "command_map",
       "url": "/data/scenarios/command_map.json",
-      "sha256": "a2ed529f0b54e1a1b5a99edcd9590a0ce8868f029f54d2afb4fb433664875017",
-      "bytes": 433371,
+      "sha256": "2d6a0d20a1dcd1941c856bab18607333aef750aaa45136300ed684899934cb21",
+      "bytes": 432679,
       "required": true
     },
     {
       "id": "patrol_scenario",
       "url": "/data/scenarios/demo_corridor_patrol.json",
-      "sha256": "edff6c276bd07c654b3703d6614d1abb9a33c382eb52208ad1f0f7c08c4e8592",
-      "bytes": 108602,
+      "sha256": "9251f0fed63b10445e4aa4d68e9b1aafceea29557b15c2dcb52af8e5fe546363",
+      "bytes": 119889,
       "required": true
     },
     {
       "id": "optimizer_fallback",
       "url": "/data/scenarios/optimizer_fallback.json",
-      "sha256": "d7597e5510aad0b14f379d028fa4e2a1a6b90c4ed497b229c7fce074e3249c47",
+      "sha256": "7196931438f53de04051066959af65c60a1396cc9bb802bbb6cbf2dd72d78f5a",
       "bytes": 1517,
       "required": true
     },
     {
       "id": "similarity",
       "url": "/data/scenarios/similarity_demo.json",
-      "sha256": "c4bde7060bb25bb7869b633b0a84e9fc9d6c7adc6548cd69f5160778d76de0f2",
-      "bytes": 1431716,
+      "sha256": "a9ade5caef2d87454db2647837afcf52f0df99af28ecdfdeb5335f409eadebd2",
+      "bytes": 1432857,
       "required": true
     },
     {
       "id": "graph",
       "url": "/data/graph/graph_snapshot.json",
-      "sha256": "aaf8bd393d21062120340eeb3cc4a9afe76c070b062677d32a15ee3ba7a03c2d",
-      "bytes": 11925630,
+      "sha256": "a8e2df2a47c8fe11105303b44d2575f4121dc1b702d3167f0e8c6182ed1b3cb1",
+      "bytes": 11935800,
       "required": true
     },
     {
       "id": "routing_region",
       "url": "/data/routing/corridor_region.json",
-      "sha256": "b94fac9ea34a76552f912b26d927243fef067ae58a6fcdd78f79e4d73ea859a3",
+      "sha256": "bca29c9cf4921cacaca2da9d374a635ffb01986e79699778749d8d2102a5cc33",
       "bytes": 1095,
       "required": true
     },
     {
       "id": "routing_hexes",
       "url": "/data/routing/hex_index.json",
-      "sha256": "539a3f3a8862c153df20a77605cd52a5764be197543209009cd0ab48d48e0bfd",
-      "bytes": 243197,
+      "sha256": "58cdcf5fbf2522033a0ff4170dbb9b74dd0b8764f2e2f5d2a0eea39d9b1e7cb3",
+      "bytes": 243202,
       "required": true
     },
     {
       "id": "routing_durations",
       "url": "/data/routing/duration_matrix.bin",
-      "sha256": "c3605a7e5b5eb59373d959c386cd1986d6a2901bd0555e8d703de193a5323a52",
+      "sha256": "580da151b728f12aba2648737492abb872bf2663caff35568e9879970f612551",
       "bytes": 5373124,
       "required": true
     },
     {
       "id": "routing_coverage",
       "url": "/data/routing/coverage_bitsets.bin",
-      "sha256": "2f11f7d1ef99a2656af5613d1f429c4e39e21d830b0f2c9e305003af0947d9b3",
+      "sha256": "4e4ddab1b37dcd1e2f37a9ec22ee93691dcc37f02b12268739edd5b4d5f3217a",
       "bytes": 857660,
       "required": true
     },
     {
       "id": "dispatch_routes",
       "url": "/data/routing/dispatch_routes.json",
-      "sha256": "d38675db4e4b154de30b52dbc56ea14197539e0b1c026d94811103d0adb42c82",
-      "bytes": 1458848,
+      "sha256": "c60a13deab4fc65c0a4e1c68ab543b3e59fbbe83ce0173c5a52462cf333f84e5",
+      "bytes": 1457701,
       "required": true
     },
     {
       "id": "justice_brief",
       "url": "/data/scenarios/justice_pipeline.json",
-      "sha256": "0e39832dd6d6350b6cca374e2f5be4ba03ea34f35e7aa390391ce71f5b0ce71a",
+      "sha256": "2f000125db738d1f02fea37ce3d825da140baf6ce328f48e3d96b350de19ddfe",
       "bytes": 91017,
       "required": true
     },
     {
       "id": "cyber_brief",
       "url": "/data/scenarios/cyber_wing.json",
-      "sha256": "d303cafd28497da2dfa93843eaf61f6cee30cef3eccf989033520c9a5ce407d9",
+      "sha256": "c15d4462c59b53e802a7f6f8ba3441c69264b3e54a2386ec0ddb021766581ee1",
       "bytes": 21025,
       "required": true
     }
@@ -121,13 +121,13 @@
   "optimizer_contract": {
     "live_timeout_ms": 2000,
     "fallback_url": "/data/scenarios/optimizer_fallback.json",
-    "fallback_sha256": "d7597e5510aad0b14f379d028fa4e2a1a6b90c4ed497b229c7fce074e3249c47"
+    "fallback_sha256": "7196931438f53de04051066959af65c60a1396cc9bb802bbb6cbf2dd72d78f5a"
   },
   "provenance": {
     "source_authority": "generated_demo",
     "transformation": "generated",
     "method": "offline_demo_manifest_v1",
-    "source_checksum": "b94fac9ea34a76552f912b26d927243fef067ae58a6fcdd78f79e4d73ea859a3",
+    "source_checksum": "bca29c9cf4921cacaca2da9d374a635ffb01986e79699778749d8d2102a5cc33",
     "generation_version": "kspcid-etl-1.0.0"
   }
 }

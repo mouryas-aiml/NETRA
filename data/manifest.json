@@ -1,6 +1,6 @@
 {
   "generation_version": "kspcid-etl-1.0.0",
-  "updated_at": "2026-09-09T08:32:53.927Z",
+  "updated_at": "2026-09-09T09:29:53.408Z",
   "entries": {
     "app/data/derived/entity_graph_raw.json": {
       "step": "07_entity_graph",
@@ -11048,12 +11048,49 @@
         }
       ],
       "generation_version": "kspcid-etl-1.0.0",
-      "generated_at": "2026-09-09T08:28:04.169Z",
+      "generated_at": "2026-09-09T09:03:11.988Z",
       "notes": {
         "nodes": 5112,
         "edges": 9246,
         "scenarios": 6
       }
+    },
+    "app/data\\derived\\graph_snapshot.json": {
+      "step": "09_compile_graph",
+      "path": "app/data\\derived\\graph_snapshot.json",
+      "rows": 5112,
+      "sha256": "a8e2df2a47c8fe11105303b44d2575f4121dc1b702d3167f0e8c6182ed1b3cb1",
+      "bytes": 11935800,
+      "inputs": [
+        {
+          "path": "app/data\\derived\\entity_graph_raw.json",
+          "sha256": "2d668215ecd3395a922165bebb6267836a979ade5750b61241e4caf668213c28"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T09:04:00.653Z",
+      "notes": {
+        "edges": 10086,
+        "communities": 61,
+        "modularity": 0.971582,
+        "gds_version": "2026.08.1",
+        "gds_similar_to_added": 840
+      }
+    },
+    "app/data\\derived\\graph_snapshot.json.br": {
+      "step": "09_compile_graph",
+      "path": "app/data\\derived\\graph_snapshot.json.br",
+      "rows": 5112,
+      "sha256": "59b76a432140e84d6bed79be7efb801ad500421e52a4ef0858693fd8fc3c6bdb",
+      "bytes": 462972,
+      "inputs": [
+        {
+          "path": "app/data\\derived\\entity_graph_raw.json",
+          "sha256": "2d668215ecd3395a922165bebb6267836a979ade5750b61241e4caf668213c28"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T09:04:00.661Z"
     },
     "app/data\\derived\\incident_stations.parquet": {
       "step": "02_station_crosswalk",
@@ -11319,6 +11356,36 @@
         "alert_candidates_raw_count_gte_5": 1061
       }
     },
+    "app/data\\nosql\\graph_edges.jsonl": {
+      "step": "09_compile_graph",
+      "path": "app/data\\nosql\\graph_edges.jsonl",
+      "rows": 10086,
+      "sha256": "1bdf4e21d4a07112d4d577f1cfb7714227b26ad1495c33852697f514b911460a",
+      "bytes": 7811034,
+      "inputs": [
+        {
+          "path": "app/data\\derived\\entity_graph_raw.json",
+          "sha256": "2d668215ecd3395a922165bebb6267836a979ade5750b61241e4caf668213c28"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T09:04:00.680Z"
+    },
+    "app/data\\nosql\\graph_nodes.jsonl": {
+      "step": "09_compile_graph",
+      "path": "app/data\\nosql\\graph_nodes.jsonl",
+      "rows": 5112,
+      "sha256": "97ac8009700de5487499b275c2ad44d209bd197d776ae54e473a70180e83b197",
+      "bytes": 4123169,
+      "inputs": [
+        {
+          "path": "app/data\\derived\\entity_graph_raw.json",
+          "sha256": "2d668215ecd3395a922165bebb6267836a979ade5750b61241e4caf668213c28"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T09:04:00.669Z"
+    },
     "app/data\\nosql\\mo_vectors.jsonl": {
       "step": "05_mo_signature",
       "path": "app/data\\nosql\\mo_vectors.jsonl",
@@ -11341,6 +11408,184 @@
         "collection": "mo_vectors",
         "dimensions": 64,
         "layout": "mo64_v1"
+      }
+    },
+    "app/data\\offline\\demo_snapshot.json": {
+      "step": "19b_offline_snapshot",
+      "path": "app/data\\offline\\demo_snapshot.json",
+      "rows": 13,
+      "sha256": "8facdaacfd9b592fef5e8dd46930bb829b1518db15291ab440504ffaeb73feba",
+      "bytes": 4106,
+      "inputs": [
+        {
+          "path": "app/data\\scenarios\\command_feed.json",
+          "sha256": "7b67f73813eeae1c3193ab6e0c7c05f4ca2388a583284e2d61877538d5c2e3fd"
+        },
+        {
+          "path": "app/data\\scenarios\\command_map.json",
+          "sha256": "2d6a0d20a1dcd1941c856bab18607333aef750aaa45136300ed684899934cb21"
+        },
+        {
+          "path": "app/data\\scenarios\\demo_corridor_patrol.json",
+          "sha256": "9251f0fed63b10445e4aa4d68e9b1aafceea29557b15c2dcb52af8e5fe546363"
+        },
+        {
+          "path": "app/data\\scenarios\\optimizer_fallback.json",
+          "sha256": "7196931438f53de04051066959af65c60a1396cc9bb802bbb6cbf2dd72d78f5a"
+        },
+        {
+          "path": "app/data\\scenarios\\similarity_demo.json",
+          "sha256": "a9ade5caef2d87454db2647837afcf52f0df99af28ecdfdeb5335f409eadebd2"
+        },
+        {
+          "path": "app/data\\derived\\graph_snapshot.json",
+          "sha256": "a8e2df2a47c8fe11105303b44d2575f4121dc1b702d3167f0e8c6182ed1b3cb1"
+        },
+        {
+          "path": "app/data\\routing\\corridor_region.json",
+          "sha256": "bca29c9cf4921cacaca2da9d374a635ffb01986e79699778749d8d2102a5cc33"
+        },
+        {
+          "path": "app/data\\routing\\hex_index.json",
+          "sha256": "58cdcf5fbf2522033a0ff4170dbb9b74dd0b8764f2e2f5d2a0eea39d9b1e7cb3"
+        },
+        {
+          "path": "app/data\\routing\\duration_matrix.bin",
+          "sha256": "580da151b728f12aba2648737492abb872bf2663caff35568e9879970f612551"
+        },
+        {
+          "path": "app/data\\routing\\coverage_bitsets.bin",
+          "sha256": "4e4ddab1b37dcd1e2f37a9ec22ee93691dcc37f02b12268739edd5b4d5f3217a"
+        },
+        {
+          "path": "app/data\\routing\\dispatch_routes.json",
+          "sha256": "c60a13deab4fc65c0a4e1c68ab543b3e59fbbe83ce0173c5a52462cf333f84e5"
+        },
+        {
+          "path": "app/data\\scenarios\\justice_pipeline.json",
+          "sha256": "2f000125db738d1f02fea37ce3d825da140baf6ce328f48e3d96b350de19ddfe"
+        },
+        {
+          "path": "app/data\\scenarios\\cyber_wing.json",
+          "sha256": "c15d4462c59b53e802a7f6f8ba3441c69264b3e54a2386ec0ddb021766581ee1"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T09:29:13.628Z",
+      "notes": {
+        "routes": 7,
+        "demo_mode": "offline"
+      }
+    },
+    "app/data\\routing\\corridor_region.json": {
+      "step": "08_routing_matrix_A0a_one_corridor_fixture",
+      "path": "app/data\\routing\\corridor_region.json",
+      "rows": 1,
+      "sha256": "bca29c9cf4921cacaca2da9d374a635ffb01986e79699778749d8d2102a5cc33",
+      "bytes": 1095,
+      "inputs": [
+        {
+          "path": "app/reference\\processed\\jurisdictions.geojson",
+          "sha256": "7cac82bf0b30b78e24c3dbf00d79d2b984217d887794573b8a45e54d50291158"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T09:27:16.175Z"
+    },
+    "app/data\\routing\\coverage_bitsets.bin": {
+      "step": "08_routing_matrix_A0a_one_corridor_fixture",
+      "path": "app/data\\routing\\coverage_bitsets.bin",
+      "rows": 5795,
+      "sha256": "4e4ddab1b37dcd1e2f37a9ec22ee93691dcc37f02b12268739edd5b4d5f3217a",
+      "bytes": 857660,
+      "inputs": [
+        {
+          "path": "app/reference\\processed\\jurisdictions.geojson",
+          "sha256": "7cac82bf0b30b78e24c3dbf00d79d2b984217d887794573b8a45e54d50291158"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T09:27:16.166Z",
+      "notes": {
+        "cells": 1159,
+        "budgets_seconds": [
+          180,
+          300,
+          420,
+          600,
+          900
+        ],
+        "words": 37
+      }
+    },
+    "app/data\\routing\\duration_matrix.bin": {
+      "step": "08_routing_matrix_A0a_one_corridor_fixture",
+      "path": "app/data\\routing\\duration_matrix.bin",
+      "rows": 1343281,
+      "sha256": "580da151b728f12aba2648737492abb872bf2663caff35568e9879970f612551",
+      "bytes": 5373124,
+      "inputs": [
+        {
+          "path": "app/reference\\processed\\jurisdictions.geojson",
+          "sha256": "7cac82bf0b30b78e24c3dbf00d79d2b984217d887794573b8a45e54d50291158"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T09:27:16.160Z",
+      "notes": {
+        "cells": 1159,
+        "scalar": "float32_seconds",
+        "conditions": "free_flow"
+      }
+    },
+    "app/data\\routing\\hex_index.json": {
+      "step": "08_routing_matrix_A0a_one_corridor_fixture",
+      "path": "app/data\\routing\\hex_index.json",
+      "rows": 1159,
+      "sha256": "58cdcf5fbf2522033a0ff4170dbb9b74dd0b8764f2e2f5d2a0eea39d9b1e7cb3",
+      "bytes": 243202,
+      "inputs": [
+        {
+          "path": "app/reference\\processed\\jurisdictions.geojson",
+          "sha256": "7cac82bf0b30b78e24c3dbf00d79d2b984217d887794573b8a45e54d50291158"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T09:27:16.146Z"
+    },
+    "app/data\\routing\\travel_time_profiles.json": {
+      "step": "20_travel_time_profiles",
+      "path": "app/data\\routing\\travel_time_profiles.json",
+      "rows": 24,
+      "sha256": "73c719622448a59319ee5185a540956757813184a7381329cd910c5dfea1ac49",
+      "bytes": 4579,
+      "inputs": [
+        {
+          "path": "app/data\\routing\\validation.json",
+          "sha256": "796c3c5c893093207ab03210d4a10067af0e6cb312d0bd46fc7b8692112e504f"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T09:29:53.408Z"
+    },
+    "app/data\\routing\\validation.json": {
+      "step": "08_routing_matrix_A0a_one_corridor_fixture",
+      "path": "app/data\\routing\\validation.json",
+      "rows": 100,
+      "sha256": "796c3c5c893093207ab03210d4a10067af0e6cb312d0bd46fc7b8692112e504f",
+      "bytes": 36452,
+      "inputs": [
+        {
+          "path": "app/reference\\processed\\jurisdictions.geojson",
+          "sha256": "7cac82bf0b30b78e24c3dbf00d79d2b984217d887794573b8a45e54d50291158"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T09:27:16.180Z",
+      "notes": {
+        "status": "PASS",
+        "median_error_percent": 0.000002275685367728561,
+        "max_error_percent": 0.019537450094008063
       }
     },
     "app/data\\scenarios\\command_feed.json": {
@@ -11367,6 +11612,30 @@
         "replay_duration_ms": 60000
       }
     },
+    "app/data\\scenarios\\command_map.json": {
+      "step": "11_command_map_fixture",
+      "path": "app/data\\scenarios\\command_map.json",
+      "rows": 500,
+      "sha256": "2d6a0d20a1dcd1941c856bab18607333aef750aaa45136300ed684899934cb21",
+      "bytes": 432679,
+      "inputs": [
+        {
+          "path": "app/data\\derived\\incidents_time.parquet",
+          "sha256": "317506a1e551a1e8059acc82d85f81029f73969f0b6688d310d8bd5663d4c33b"
+        },
+        {
+          "path": "app/data\\scenarios\\command_feed.json",
+          "sha256": "7b67f73813eeae1c3193ab6e0c7c05f4ca2388a583284e2d61877538d5c2e3fd"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T08:52:48.805Z",
+      "notes": {
+        "reported_points": 500,
+        "explanations": 24,
+        "alerts": 6
+      }
+    },
     "app/data\\scenarios\\cyber_wing.json": {
       "step": "17b_cyber_fixture",
       "path": "app/data\\scenarios\\cyber_wing.json",
@@ -11388,6 +11657,36 @@
         "zero_geographic_dependency": true
       }
     },
+    "app/data\\scenarios\\demo_corridor_patrol.json": {
+      "step": "10_patrol_fixture",
+      "path": "app/data\\scenarios\\demo_corridor_patrol.json",
+      "rows": 318,
+      "sha256": "9251f0fed63b10445e4aa4d68e9b1aafceea29557b15c2dcb52af8e5fe546363",
+      "bytes": 119889,
+      "inputs": [
+        {
+          "path": "app/data\\derived\\incidents_time.parquet",
+          "sha256": "317506a1e551a1e8059acc82d85f81029f73969f0b6688d310d8bd5663d4c33b"
+        },
+        {
+          "path": "app/data\\routing\\hex_index.json",
+          "sha256": "58cdcf5fbf2522033a0ff4170dbb9b74dd0b8764f2e2f5d2a0eea39d9b1e7cb3"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T09:27:55.846Z",
+      "notes": {
+        "demand_cells": 168,
+        "replay_events": 120,
+        "generated_units": 16,
+        "selected_hours_local": [
+          20,
+          21,
+          22,
+          23
+        ]
+      }
+    },
     "app/data\\scenarios\\justice_pipeline.json": {
       "step": "15_justice_fixture",
       "path": "app/data\\scenarios\\justice_pipeline.json",
@@ -11406,6 +11705,57 @@
         "stages": 13,
         "stations": 107,
         "modelled_edges": 14
+      }
+    },
+    "app/data\\scenarios\\optimizer_fallback.json": {
+      "step": "19b_optimizer_fallback",
+      "path": "app/data\\scenarios\\optimizer_fallback.json",
+      "rows": 16,
+      "sha256": "7196931438f53de04051066959af65c60a1396cc9bb802bbb6cbf2dd72d78f5a",
+      "bytes": 1517,
+      "inputs": [
+        {
+          "path": "app/data\\scenarios\\demo_corridor_patrol.json",
+          "sha256": "9251f0fed63b10445e4aa4d68e9b1aafceea29557b15c2dcb52af8e5fe546363"
+        },
+        {
+          "path": "app/data\\routing\\coverage_bitsets.bin",
+          "sha256": "4e4ddab1b37dcd1e2f37a9ec22ee93691dcc37f02b12268739edd5b4d5f3217a"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T09:29:13.620Z",
+      "notes": {
+        "target_minutes": 7,
+        "reserve_units": 2,
+        "score": 817
+      }
+    },
+    "app/data\\scenarios\\similarity_demo.json": {
+      "step": "12_similarity_fixture",
+      "path": "app/data\\scenarios\\similarity_demo.json",
+      "rows": 12,
+      "sha256": "a9ade5caef2d87454db2647837afcf52f0df99af28ecdfdeb5335f409eadebd2",
+      "bytes": 1432857,
+      "inputs": [
+        {
+          "path": "app/data\\derived\\incidents_time.parquet",
+          "sha256": "317506a1e551a1e8059acc82d85f81029f73969f0b6688d310d8bd5663d4c33b"
+        },
+        {
+          "path": "app/data\\derived\\mo_signatures.parquet",
+          "sha256": "b7fe36e753bad8bdf80676153df64e6d8d6de6bc98e2ea20b7651ae58ac19365"
+        },
+        {
+          "path": "app/data\\nosql\\mo_vectors.jsonl",
+          "sha256": "cb60ec8f9cc60eb40da182cffc4002f4e700f64d3a795c936638ad9d11ec9e48"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T08:53:18.714Z",
+      "notes": {
+        "candidate_pool": 38024,
+        "candidates_per_case": 100
       }
     },
     "app/data\\scenarios\\station_brief.json": {

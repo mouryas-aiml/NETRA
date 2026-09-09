@@ -49,26 +49,6 @@ for (const [source, destination] of files) {
 process.stdout.write(`Synced ${copied}/${files.length} deterministic application artifacts.\n`)
 
 const buildStubs = [
-  [
-    'public/data/scenarios/state_intelligence.json',
-    {
-      schema_version: '1.0.0',
-      snapshot_through: '1970-01-01',
-      crime_groups: ['All registered crime'],
-      state_summary: { districts: 0, special_units: 0, source_rows: 0, top_priority: [] },
-      districts: [],
-      special_units: [],
-      backtest: {
-        observations: 0,
-        four_week_mae: 0,
-        interval_10_90_coverage_pct: 0,
-        spearman_risk_to_next_4w: null,
-        top_quintile_lift: 0,
-      },
-      provenance: { note: 'Placeholder written because the compiled fixture was not in the clone.' },
-    },
-  ],
-  ['public/data/reference/karnataka_districts.json', { type: 'FeatureCollection', features: [] }],
   ['public/data/scenarios/station_brief.json', { stations: [{ station_code: 'unavailable', station_name: 'Unavailable' }] }],
 ]
 
