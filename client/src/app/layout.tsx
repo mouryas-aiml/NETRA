@@ -17,11 +17,11 @@ const kannada = Noto_Sans_Kannada({
 
 export const metadata: Metadata = {
   title: {
-    default: 'KSPCID',
-    template: '%s · KSPCID',
+    default: 'NETRA',
+    template: '%s · NETRA',
   },
   description:
-    'Crime Intelligence & Analytical Platform · State Crime Records Bureau',
+    'NETRA - AI-Powered Criminal Network Intelligence & Analysis System',
 }
 
 export default function RootLayout({ children }: { readonly children: ReactNode }) {

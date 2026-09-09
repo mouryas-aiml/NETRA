@@ -10,6 +10,7 @@ import {
   Map,
   Network,
   RadioTower,
+  Search,
   ScanSearch,
   Shield,
 } from 'lucide-react'
@@ -22,8 +23,9 @@ const items = [
   { href: '/map/', label: 'Command Map', icon: Map },
   { href: '/feed/', label: 'Command Feed', icon: BellRing },
   { href: '/patrol/', label: 'Patrol Lab', icon: RadioTower },
+  { href: '/similarity/', label: 'Case Similarity', icon: Search },
   { href: '/network/', label: 'Case Constellation', icon: Network },
-  { href: '/cyber/', label: 'Cyber Wing', icon: Activity },
+  { href: '/cyber/', label: 'Cyber Intelligence Wing', icon: Activity },
   { href: '/review/', label: 'Crime Review', icon: BookOpenText },
   { href: '/justice/', label: 'Justice Pipeline', icon: GitBranch },
   { href: '/station/', label: 'Station Brief', icon: FileText },
@@ -48,7 +50,7 @@ export function AppRail() {
   return (
     <nav className="app-rail no-print" aria-label="Primary">
       {/* Home is the overview, not the map — the map is one module within it. */}
-      <Link href="/" className="rail-mark" aria-label="KSPCID overview">
+      <Link href="/" className="rail-mark" aria-label="NETRA overview">
         <Shield size={20} strokeWidth={1.8} />
       </Link>
       <div className="rail-items">

@@ -1,8 +1,13 @@
 import { createHash, createHmac } from "node:crypto";
 import { createReadStream } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, resolve } from "node:path";
 
-export const ROOT = new URL("../", import.meta.url).pathname.replace(/\/scripts\/$/, "");
-export const SOURCE_FILE = `${ROOT}/Crime_Data_from_2020_to_2024_20260724.csv`;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export const ROOT = resolve(__dirname, "..");
+export const SOURCE_FILE = resolve(ROOT, "Crime_Data_from_2020_to_2024_20260724.csv");
 export const GENERATION_VERSION = "blr-synthetic-v1.0.0";
 export const GENERATION_SEED = "KPSCID-BENGALURU-SYNTHETIC-CRIME-2020-2024-V1";
 export const UUID_NAMESPACE = "7f1c478f-1813-5b84-a6f6-2a38edc04832";

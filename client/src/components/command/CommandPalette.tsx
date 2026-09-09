@@ -76,11 +76,11 @@ export function CommandPalette() {
       }}
       role="presentation"
     >
-      <section aria-label={about ? 'About KSPCID' : 'Command palette'} aria-modal="true" className="w-full max-w-2xl overflow-hidden rounded-[--r-lg] border border-[--ink-500] bg-[--ink-800] text-[--txt] shadow-[0_32px_100px_rgb(0_0_0_/.7)]" role="dialog">
+      <section aria-label={about ? 'About NETRA' : 'Command palette'} aria-modal="true" className="w-full max-w-2xl overflow-hidden rounded-[--r-lg] border border-[--ink-500] bg-[--ink-800] text-[--txt] shadow-[0_32px_100px_rgb(0_0_0_/.7)]" role="dialog">
         <header className="flex items-center justify-between border-b border-[--ink-600] px-5 py-4">
           <div className="flex items-center gap-3">
             <span className="grid h-8 w-8 place-items-center rounded-[--r-sm] bg-[rgb(240_168_0_/.12)] text-[--gold-400]"><Shield size={16} /></span>
-            <div><p className="type-micro text-[--gold-400]">KSPCID</p><h2 className="text-sm font-semibold">{about ? 'About this build' : 'Go to module or scenario'}</h2></div>
+            <div><p className="type-micro text-[--gold-400]">NETRA</p><h2 className="text-sm font-semibold">{about ? 'About this build' : 'Go to module or scenario'}</h2></div>
           </div>
           <button aria-label="Close command palette" className="icon-button" onClick={() => setOpen(false)} type="button"><X size={16} /></button>
         </header>

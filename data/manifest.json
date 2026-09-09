@@ -1,6 +1,6 @@
 {
   "generation_version": "kspcid-etl-1.0.0",
-  "updated_at": "2026-09-03T11:31:49.412Z",
+  "updated_at": "2026-09-09T08:32:53.927Z",
   "entries": {
     "app/data/derived/entity_graph_raw.json": {
       "step": "07_entity_graph",
@@ -11033,6 +11033,411 @@
         "snapshot_week": "2023-12-25",
         "stations_above_expected_band": 0,
         "kannada_resolved": 43
+      }
+    },
+    "app/data\\derived\\entity_graph_raw.json": {
+      "step": "07_entity_graph",
+      "path": "app/data\\derived\\entity_graph_raw.json",
+      "rows": 5112,
+      "sha256": "2d668215ecd3395a922165bebb6267836a979ade5750b61241e4caf668213c28",
+      "bytes": 16341930,
+      "inputs": [
+        {
+          "path": "app/data\\derived\\incidents_time.parquet",
+          "sha256": "317506a1e551a1e8059acc82d85f81029f73969f0b6688d310d8bd5663d4c33b"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T08:28:04.169Z",
+      "notes": {
+        "nodes": 5112,
+        "edges": 9246,
+        "scenarios": 6
+      }
+    },
+    "app/data\\derived\\incident_stations.parquet": {
+      "step": "02_station_crosswalk",
+      "path": "app/data\\derived\\incident_stations.parquet",
+      "rows": 425408,
+      "sha256": "e5c29bf2ba6c7bfb2c31db188feff20e52bb044d7a6f05c001ee639200948333",
+      "bytes": 11998100,
+      "inputs": [
+        {
+          "path": "app/data\\derived\\incidents_raw.parquet",
+          "sha256": "fafa6e8824e0bffa6f46431602422fd11f97d41855c45118e45f036e1aa77e9e"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T07:59:22.878Z",
+      "notes": {
+        "case_refs_assigned": 425408
+      }
+    },
+    "app/data\\derived\\incidents.parquet": {
+      "step": "03_geo_resolve",
+      "path": "app/data\\derived\\incidents.parquet",
+      "rows": 425408,
+      "sha256": "b5d8201f4e38f86158d863ef5cf886389bc8fb4d2731910317d917d55e5f173e",
+      "bytes": 28659756,
+      "inputs": [
+        {
+          "path": "app/reference\\processed\\jurisdictions.geojson",
+          "sha256": "7cac82bf0b30b78e24c3dbf00d79d2b984217d887794573b8a45e54d50291158"
+        },
+        {
+          "path": "app/reference\\processed\\anchors.json",
+          "sha256": "b574d9cc990bd0418fbec0a5c81080f8a11f971bb17d7c805f5beb5dda8f72b1"
+        },
+        {
+          "path": "app/Data_Docs\\third_party\\kaggle\\fir_details_karnataka_police_v2\\FIR_Details_Data.csv",
+          "sha256": "9191e0caebf62d6cfb625800ded84fbb492d9ea59ffe9359b51fd2c33172a604"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T07:59:42.200Z",
+      "notes": {
+        "tiers": {
+          "reported": 104443,
+          "inferred": 192241,
+          "reported_corrected": 8209,
+          "unlocatable": 120515
+        },
+        "boundary_corrections": 8209,
+        "demoted_non_adjacent": 4178,
+        "anchor_class_fallbacks": 0,
+        "pin_eligible": 112652
+      }
+    },
+    "app/data\\derived\\incidents_raw.parquet": {
+      "step": "01_ingest_fir",
+      "path": "app/data\\derived\\incidents_raw.parquet",
+      "rows": 425408,
+      "sha256": "fafa6e8824e0bffa6f46431602422fd11f97d41855c45118e45f036e1aa77e9e",
+      "bytes": 24496928,
+      "inputs": [
+        {
+          "path": "app/Data_Docs\\third_party\\kaggle\\fir_details_karnataka_police_v2\\FIR_Details_Data.csv",
+          "sha256": "9191e0caebf62d6cfb625800ded84fbb492d9ea59ffe9359b51fd2c33172a604"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T07:59:17.924Z",
+      "notes": {
+        "source_rows_scanned": 1674734,
+        "within_complete_window": 412754,
+        "outside_complete_window": 12654,
+        "analysis_cutoff": "2023-12-31",
+        "rejects": 0
+      }
+    },
+    "app/data\\derived\\incidents_time.parquet": {
+      "step": "04_time_model",
+      "path": "app/data\\derived\\incidents_time.parquet",
+      "rows": 425408,
+      "sha256": "317506a1e551a1e8059acc82d85f81029f73969f0b6688d310d8bd5663d4c33b",
+      "bytes": 29819917,
+      "inputs": [
+        {
+          "path": "app/data\\derived\\incidents.parquet",
+          "sha256": "b5d8201f4e38f86158d863ef5cf886389bc8fb4d2731910317d917d55e5f173e"
+        },
+        {
+          "path": "app/output\\bengaluru_synthetic_crime_2020_2024.parquet",
+          "sha256": "f5202d3c0c71a6302bb27a3fbda320f9651de166f9e0f0e8d1df40fe86b92b38"
+        },
+        {
+          "path": "app/data\\derived\\time_model_profiles.json",
+          "sha256": "c7c7b96b3a03f1b7517ece1d7c5a64dfbdc042916c0bda83bbb97a03cbd3b591"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T08:25:51.843Z",
+      "notes": {
+        "inferred": 321575,
+        "null_cyber": 64599,
+        "null_missing_person": 39234,
+        "hour_counts": [
+          5742,
+          5191,
+          5964,
+          5368,
+          5273,
+          5362,
+          10381,
+          10249,
+          10731,
+          10723,
+          10349,
+          10313,
+          15744,
+          16214,
+          16618,
+          17279,
+          16054,
+          15344,
+          21323,
+          21241,
+          21064,
+          21050,
+          22202,
+          21796
+        ]
+      }
+    },
+    "app/data\\derived\\mo_signatures.parquet": {
+      "step": "05_mo_signature",
+      "path": "app/data\\derived\\mo_signatures.parquet",
+      "rows": 425408,
+      "sha256": "b7fe36e753bad8bdf80676153df64e6d8d6de6bc98e2ea20b7651ae58ac19365",
+      "bytes": 26949707,
+      "inputs": [
+        {
+          "path": "app/data\\derived\\incidents_time.parquet",
+          "sha256": "317506a1e551a1e8059acc82d85f81029f73969f0b6688d310d8bd5663d4c33b"
+        },
+        {
+          "path": "app/data\\derived\\mo_vocabulary.json",
+          "sha256": "c87d3b9a4a02ce2f5275165f1d7e9b8655818d58883236053371b140fe0e4635"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T08:26:59.311Z",
+      "notes": {
+        "with_sections": 425249,
+        "with_weapon_hints": 129153
+      }
+    },
+    "app/data\\derived\\mo_vocabulary.json": {
+      "step": "05_mo_signature",
+      "path": "app/data\\derived\\mo_vocabulary.json",
+      "rows": 200,
+      "sha256": "c87d3b9a4a02ce2f5275165f1d7e9b8655818d58883236053371b140fe0e4635",
+      "bytes": 20263,
+      "inputs": [
+        {
+          "path": "app/data\\derived\\incidents_time.parquet",
+          "sha256": "317506a1e551a1e8059acc82d85f81029f73969f0b6688d310d8bd5663d4c33b"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T08:26:59.277Z",
+      "notes": {
+        "dimensions": 64,
+        "section_vocabulary": 200,
+        "section_encoding": "stable_feature_hash"
+      }
+    },
+    "app/data\\derived\\statewide_rollup.parquet": {
+      "step": "01_ingest_fir",
+      "path": "app/data\\derived\\statewide_rollup.parquet",
+      "rows": 19599,
+      "sha256": "e488ed2f31454ca0d8b6a2fa35e1cfc88517423382f1bf030b6ef9a050bf5394",
+      "bytes": 36406,
+      "inputs": [
+        {
+          "path": "app/Data_Docs\\third_party\\kaggle\\fir_details_karnataka_police_v2\\FIR_Details_Data.csv",
+          "sha256": "9191e0caebf62d6cfb625800ded84fbb492d9ea59ffe9359b51fd2c33172a604"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T07:59:17.933Z"
+    },
+    "app/data\\derived\\stations.parquet": {
+      "step": "02_station_crosswalk",
+      "path": "app/data\\derived\\stations.parquet",
+      "rows": 178,
+      "sha256": "780edb656c93f727e297390752e7ba225352d7b96f0b0b4053bd8c03ffda2d69",
+      "bytes": 5422,
+      "inputs": [
+        {
+          "path": "app/reference\\processed\\jurisdictions.geojson",
+          "sha256": "7cac82bf0b30b78e24c3dbf00d79d2b984217d887794573b8a45e54d50291158"
+        },
+        {
+          "path": "app/Data_Docs\\official\\opencity\\police_station_locations\\bengaluru_urban_police_stations.kml",
+          "sha256": "6958c742c89022b0f9d9f60d3f2db9df31a133388735e5ccd8fc9fabe465cacd"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T07:59:22.833Z",
+      "notes": {
+        "units_total": 178,
+        "territorial": 106,
+        "non_territorial": 62,
+        "unresolved": 0,
+        "polygons_claimed": 106,
+        "polygons_total": 106
+      }
+    },
+    "app/data\\derived\\time_model_profiles.json": {
+      "step": "04_time_model",
+      "path": "app/data\\derived\\time_model_profiles.json",
+      "rows": 21560,
+      "sha256": "c7c7b96b3a03f1b7517ece1d7c5a64dfbdc042916c0bda83bbb97a03cbd3b591",
+      "bytes": 19352895,
+      "inputs": [
+        {
+          "path": "app/data\\derived\\incidents.parquet",
+          "sha256": "b5d8201f4e38f86158d863ef5cf886389bc8fb4d2731910317d917d55e5f173e"
+        },
+        {
+          "path": "app/output\\bengaluru_synthetic_crime_2020_2024.parquet",
+          "sha256": "f5202d3c0c71a6302bb27a3fbda320f9651de166f9e0f0e8d1df40fe86b92b38"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T08:25:51.779Z",
+      "notes": {
+        "prior_strength": 48,
+        "weekday_basis": "registered_on",
+        "taxonomy_fallback": "other_incident"
+      }
+    },
+    "app/data\\derived\\weekly_baselines.parquet": {
+      "step": "06_baselines",
+      "path": "app/data\\derived\\weekly_baselines.parquet",
+      "rows": 5797660,
+      "sha256": "e2adf77f8a54557031543f84f986e92fd71ecedb54f9fac9d821a8cead45655d",
+      "bytes": 46139807,
+      "inputs": [
+        {
+          "path": "app/data\\derived\\incidents_time.parquet",
+          "sha256": "317506a1e551a1e8059acc82d85f81029f73969f0b6688d310d8bd5663d4c33b"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T08:27:42.505Z",
+      "notes": {
+        "input_complete_window_rows": 412754,
+        "excluded_partial_2024_rows": 12654,
+        "pairs": 13870,
+        "weeks_per_pair": 418,
+        "alpha": 0.25,
+        "rolling_weeks": 52,
+        "ucl_quantile": 0.99,
+        "ucl_distribution": "negative_binomial_with_poisson_limit",
+        "alert_candidates_raw_count_gte_5": 1061
+      }
+    },
+    "app/data\\nosql\\mo_vectors.jsonl": {
+      "step": "05_mo_signature",
+      "path": "app/data\\nosql\\mo_vectors.jsonl",
+      "rows": 425408,
+      "sha256": "cb60ec8f9cc60eb40da182cffc4002f4e700f64d3a795c936638ad9d11ec9e48",
+      "bytes": 210576960,
+      "inputs": [
+        {
+          "path": "app/data\\derived\\incidents_time.parquet",
+          "sha256": "317506a1e551a1e8059acc82d85f81029f73969f0b6688d310d8bd5663d4c33b"
+        },
+        {
+          "path": "app/data\\derived\\mo_vocabulary.json",
+          "sha256": "c87d3b9a4a02ce2f5275165f1d7e9b8655818d58883236053371b140fe0e4635"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T08:27:00.183Z",
+      "notes": {
+        "collection": "mo_vectors",
+        "dimensions": 64,
+        "layout": "mo64_v1"
+      }
+    },
+    "app/data\\scenarios\\command_feed.json": {
+      "step": "16_command_feed",
+      "path": "app/data\\scenarios\\command_feed.json",
+      "rows": 25,
+      "sha256": "7b67f73813eeae1c3193ab6e0c7c05f4ca2388a583284e2d61877538d5c2e3fd",
+      "bytes": 28657,
+      "inputs": [
+        {
+          "path": "app/data\\derived\\weekly_baselines.parquet",
+          "sha256": "e2adf77f8a54557031543f84f986e92fd71ecedb54f9fac9d821a8cead45655d"
+        },
+        {
+          "path": "app/data\\derived\\incidents_time.parquet",
+          "sha256": "317506a1e551a1e8059acc82d85f81029f73969f0b6688d310d8bd5663d4c33b"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T08:32:39.507Z",
+      "notes": {
+        "detector_candidates": 25,
+        "mappable_alerts": 11,
+        "replay_duration_ms": 60000
+      }
+    },
+    "app/data\\scenarios\\cyber_wing.json": {
+      "step": "17b_cyber_fixture",
+      "path": "app/data\\scenarios\\cyber_wing.json",
+      "rows": 64599,
+      "sha256": "c15d4462c59b53e802a7f6f8ba3441c69264b3e54a2386ec0ddb021766581ee1",
+      "bytes": 21025,
+      "inputs": [
+        {
+          "path": "app/data\\derived\\incidents_time.parquet",
+          "sha256": "317506a1e551a1e8059acc82d85f81029f73969f0b6688d310d8bd5663d4c33b"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T08:32:53.927Z",
+      "notes": {
+        "caseload_share_pct": 15.19,
+        "mappable_coordinates": 8823,
+        "mappable_share_pct": 13.66,
+        "zero_geographic_dependency": true
+      }
+    },
+    "app/data\\scenarios\\justice_pipeline.json": {
+      "step": "15_justice_fixture",
+      "path": "app/data\\scenarios\\justice_pipeline.json",
+      "rows": 425408,
+      "sha256": "2f000125db738d1f02fea37ce3d825da140baf6ce328f48e3d96b350de19ddfe",
+      "bytes": 91017,
+      "inputs": [
+        {
+          "path": "app/data\\derived\\incidents_time.parquet",
+          "sha256": "317506a1e551a1e8059acc82d85f81029f73969f0b6688d310d8bd5663d4c33b"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T08:32:32.981Z",
+      "notes": {
+        "stages": 13,
+        "stations": 107,
+        "modelled_edges": 14
+      }
+    },
+    "app/data\\scenarios\\station_brief.json": {
+      "step": "17_station_brief",
+      "path": "app/data\\scenarios\\station_brief.json",
+      "rows": 106,
+      "sha256": "7302945edaeb61de3f2ee3e97f6093c594cbc411b7308f694711fee61e155b0c",
+      "bytes": 494424,
+      "inputs": [
+        {
+          "path": "app/data\\derived\\weekly_baselines.parquet",
+          "sha256": "e2adf77f8a54557031543f84f986e92fd71ecedb54f9fac9d821a8cead45655d"
+        },
+        {
+          "path": "app/data\\derived\\incidents_time.parquet",
+          "sha256": "317506a1e551a1e8059acc82d85f81029f73969f0b6688d310d8bd5663d4c33b"
+        },
+        {
+          "path": "app/data\\derived\\stations.parquet",
+          "sha256": "780edb656c93f727e297390752e7ba225352d7b96f0b0b4053bd8c03ffda2d69"
+        },
+        {
+          "path": "app/reference\\raw\\bengaluru_osm_overpass.json",
+          "sha256": "b574d9cc990bd0418fbec0a5c81080f8a11f971bb17d7c805f5beb5dda8f72b1"
+        }
+      ],
+      "generation_version": "kspcid-etl-1.0.0",
+      "generated_at": "2026-09-09T08:32:45.541Z",
+      "notes": {
+        "snapshot_week": "2023-12-25",
+        "stations_above_expected_band": 0,
+        "kannada_resolved": 0
       }
     },
     "app/reference/processed/karnataka_districts.geojson": {

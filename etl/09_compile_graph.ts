@@ -9,7 +9,7 @@
  * "The compiler stage is not optional … the snapshot is an *export of a real
  * graph database's output*, not a hand-built JSON."
  *
- * Requires the compiler container:  docker compose up -d neo4j
+ * Requires the local Neo4j Desktop database to be running on Bolt.
  *
  * ForceAtlas2 stays in Graphology: GDS has no force-directed layout, and §9
  * separately requires a precomputed x,y so the graph opens settled. That is a
@@ -40,8 +40,9 @@ const brotli = promisify(brotliCompress)
 const NEO4J_URL = process.env['KSPCID_NEO4J_URL'] ?? 'bolt://localhost:7687'
 const NEO4J_USER = process.env['KSPCID_NEO4J_USER'] ?? 'neo4j'
 const NEO4J_PASSWORD = process.env['KSPCID_NEO4J_PASSWORD'] ?? 'kspcid-local-compile'
-/** §6.6 — batched UNWIND, 10k per transaction. */
-const BATCH_SIZE = 10_000
+const NEO4J_DATABASE = process.env['KSPCID_NEO4J_DATABASE'] ?? 'neo4j'
+/** Smaller autocommit batches keep the Desktop database responsive during import. */
+const BATCH_SIZE = 1_000
 const GRAPH_NAME = 'assoc'
 /** Incident-only projection carrying mo_vector for gds.knn — see §6.6 note below. */
 const MO_GRAPH_NAME = 'assoc_mo'
@@ -203,20 +204,25 @@ async function main(): Promise<void> {
   const driver: Driver = neo4j.driver(
     NEO4J_URL,
     neo4j.auth.basic(NEO4J_USER, NEO4J_PASSWORD),
-    { disableLosslessIntegers: true },
+    {
+      connectionAcquisitionTimeout: 30_000,
+      connectionTimeout: 10_000,
+      disableLosslessIntegers: true,
+      maxTransactionRetryTime: 60_000,
+    },
   )
   try {
     await driver.getServerInfo()
   } catch (error) {
     await driver.close()
     throw new Error(
-      `09 requires the Neo4j + GDS compiler at ${NEO4J_URL}. Start it with ` +
-        `\`docker compose up -d neo4j\`. §2.2 forbids cutting the compiler stage. ` +
+      `09 requires the Neo4j + GDS compiler at ${NEO4J_URL}. Start the local ` +
+        `Neo4j Desktop database and verify its Bolt port, user, password, and database. ` +
         `Underlying error: ${(error as Error).message}`,
     )
   }
 
-  const session = driver.session()
+  const session = driver.session({ database: NEO4J_DATABASE })
   let gdsVersion = 'unknown'
   let apocVersion = 'unknown'
   let louvainCommunities = 0

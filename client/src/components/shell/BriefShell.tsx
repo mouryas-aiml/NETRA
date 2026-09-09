@@ -37,7 +37,7 @@ export function BriefShell({
         )}
         <div className="brief-brand">
           <Shield size={17} />
-          <span>KSPCID</span>
+          <span>NETRA</span>
         </div>
         <div className="brief-actions">
           {actions}

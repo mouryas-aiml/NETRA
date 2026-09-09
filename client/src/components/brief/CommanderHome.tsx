@@ -219,7 +219,7 @@ export function CommanderHome() {
     <article className="flex flex-col gap-5 p-6 sm:p-8" style={{ color: 'var(--ink)' }}>
       <header>
         <p className="type-micro" style={{ color: 'var(--gold-print)' }}>
-          Karnataka State Police · State Crime Records Bureau
+          NETRA - AI-Powered Criminal Network Intelligence & Analysis System
         </p>
         <h1 className="mt-1 text-[26px] font-semibold leading-8">Bengaluru overview</h1>
         <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
